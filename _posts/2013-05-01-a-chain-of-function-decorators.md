@@ -1,6 +1,7 @@
 ---
 layout: post
 category: python
+title: a chian of function decorators
 tags: [python, decorator]
 ---
 
