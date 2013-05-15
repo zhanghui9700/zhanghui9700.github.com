@@ -301,7 +301,7 @@ pre {
   padding-left: 0;
 }
 .unit-article ul {
-  list-style: square;
+  /*list-style: square;*/
 }
 .unit-article ol {
   list-style: decimal;
