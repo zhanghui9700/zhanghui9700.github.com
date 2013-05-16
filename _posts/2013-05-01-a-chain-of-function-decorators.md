@@ -1,7 +1,7 @@
 ---
 layout: post
 category: python
-title: a chian of function decorators
+title: a chain of function decorators
 tags: [python, decorator]
 ---
 
