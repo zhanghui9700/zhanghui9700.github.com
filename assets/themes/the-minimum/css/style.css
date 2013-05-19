@@ -95,7 +95,21 @@ small, .small, aside {
   font-size: 1em;
 }
 blockquote {
-  font-weight: bold;
+    font-weight: bold;
+    font: 16px/30px normal Tahoma, sans-serif;
+    padding-top: 22px;
+    margin: 5px;
+    background-image: url('/assets/themes/the-minimum/skin/openquote3.gif');
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-indent: 65px;
+
+}
+blockquote p {
+    display: block;
+    background-image: url('/assets/themes/the-minimum/skin/closequote3.gif');
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 blockquote cite {
   font-weight: normal;
@@ -196,8 +210,9 @@ a:hover {
 pre {
   margin-bottom: 1.625em;
 }
+
 pre {
-  color: #f2f2f2;
+  color: #f2f2f2; 
   background-color: #393939;
   border: 1px solid #393939;
   font-family: "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
@@ -209,6 +224,24 @@ pre {
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.6);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.6);
 }
+
+/*pre {
+    font: 16px/30px normal Tahoma, sans-serif;
+    padding-top: 22px;
+    margin: 5px;
+    background-image: url('/assets/themes/the-minimum/skin/openquote3.gif');
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-indent: 65px;
+}
+
+pre code{
+    display: block;
+    background-image: url('/assets/themes/the-minimum/skin/closequote3.gif');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}*/
+
 /* meta */
 /* HEADER
 --------------------------------------------------------------------------------- */
@@ -290,7 +323,7 @@ pre {
   border-bottom: 1px dotted #bbddbb;
 }
 .unit-article blockquote {
-  border-left: 1em solid rgba(21, 25, 25, 0.8);
+  /*border-left: 1em solid rgba(21, 25, 25, 0.8); */
   padding-left: 1em;
 }
 .unit-article blockquote p {
@@ -409,13 +442,13 @@ pre {
   position: relative;
 }
 .unit-article .unit-foot a:link {
-  color: #fafafa;
+  /*color: #fafafa;*/
 }
 .unit-article .unit-foot a:visited {
-  color: #fafafa;
+  color: black;
 }
 .unit-article .unit-foot a:hover {
-  color: #ffffff;
+  color: bule;
 }
 .unit-article .unit-foot nav ul {
   list-style: none;
