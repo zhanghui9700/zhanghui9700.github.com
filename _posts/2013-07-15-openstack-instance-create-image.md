@@ -167,3 +167,6 @@ if __name__ == "__main__":
 
 基本上create_image的流程算是简单了解了一下，其实我感觉openstack的网络才是最复杂的，现在我们还是用的VlanManager，但是我对iptables不太了解，不太懂NAT,SNAT各种，所以碰上浮动IP的问题，我有点不知道怎么调试，只能各种猜测(arp, tcpdump, tracepath)。
 this all, done!
+
+\[参考资料\] <br/>
+[\[The life of an OpenStack libvirt image\]](http://www.pixelbeat.org/docs/openstack_libvirt_images/)
