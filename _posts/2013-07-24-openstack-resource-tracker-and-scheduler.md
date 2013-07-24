@@ -1,48 +1,151 @@
-#
+---
+layout: post
+title: openstack resource tracker and scheduler
+category: openstack
+tag: [openstack, python]
+---
 
-# service report interval  10s
-# compute node report interval 60s
+{% include JB/setup %}
 
-"""resource tracker explore""""
 
+同事最近把jenkins里的openstack的压力测试跑起来了，压力测试的方案使用openstack项目中的[tempest](https://github.com/openstack/tempest)，
+24\*7循环跑testcase，早晨同事发现很多VMs状态是Error，看了一下nova-sechduler，因为资源不够导致没有host可用，因此得出一个结论：openstack存在资源泄露。
+我们现在就要一起来探索一下openstack的资源调度和监控机制，找到问题解决疑惑，并且需要确认是否真的泄露。
+
+首先看两段log，/var/log/nova/nova-compute.log和/var/log/nova/nova-scheduler.log。
+
+>`/var/log/nova/nova-compute.log (host: trystack-compute3)`
+>`nova.compute.resource_tracker [-] Hypervisor: free ram (MB): 23353 `
+>`nova.compute.resource_tracker [-] Hypervisor: free disk (GB): 4271`
+>`nova.compute.resource_tracker [-] Hypervisor: free VCPUs: -43 `
+>`nova.compute.resource_tracker [-] Free ram (MB): -46683`
+>`nova.compute.resource_tracker [-] Free disk (GB): -7332`
+>`nova.compute.resource_tracker [-] Free VCPUS: -90`
+>`nova.compute.resource_tracker [-] Compute_service record updated for trystack-compute3`
+
+>`/var/log/nova/nova-scheduler.log (host: trystack-manager)`
+>`nova.openstack.common.rpc.amqp [-] received method 'update_service_capabilities'`
+>`nova.scheduler.host_manager [-] Received compute service update from trystack-compute2.`
+>`nova.scheduler.host_manager [-] Received compute service update from trystack-compute2.`
+>`nova.scheduler.host_manager [-] Received compute service update from trystack-compute2.`
+
+openstack的资源监控机制是每个host自己负责将自己的资源使用情况实时的持久化到数据库里，启动VM的时候需要通过资源调度将VM路由到资源最合理的host上去，那么nova-compute与nova-scheduler是怎么交互的呢？nova-scheduler又是怎么获取每个host上的资源情况呢？
+
+#### update available resource
+首先看看nova-compute的update_available_resource这个定时任务(default:60S)，我们看看他做了些什么事情。
+1. 定时执行update_available_resouce, 这是compute/resouce_tracker.py: ResouceTracker的一个方法
+1. resource_tracker.update_available_resource的逻辑：
+    + resource = libvirt_dirver.get_available_resource() 这个资源都是host的真实资源情况，还不包含instance中flavor的资源占用情况。
+    + nova-compute log 打印Hypervisor资源相关的信息
+    + purge_expired_claims这里我没仔细看
+    + 获取当前host上所有未删除的云主机
+    + 对resource进行资源扣除根据每个instance的flavor信息mem/disk
+    + 持久化resource信息到mysql
+
+#### report driver status
+再来看一个和nova-scheduler相关的_report_driver_status(60S)，我们再看看他做了些什么事情。
+1. 检查时间间隔
+1. capabilities = libvirt_driver.get_host_stats (host的真实资源情况和一些系统参数)
+1. update self.last_capabilities = capabilities
+1. 另外一个periodic task发生，把capabilities的信息发送给nova-scheduler
+1. nova-scheduler服务接受这个rpc call之后cache住这个host的信息
+1. 当启动VM的时候nova-scheduler获取到所有的cached的host capabilities，并且通过mysql里的compute_node信息更新capabilities信息。
+1. 到此nova-scheduler终于和update_available_resource有了联系。
+
+总起来说，这个逻辑真复杂，为什么不直接用mysql多加了一个rpc call意义在哪？最后还是要依赖于db里的compute_node信息?
+
+{% highlight python%}
+    #/nova/compute/manager.py: ComputeManager --> SchedulerDependentManager
+    @manager.periodic_task
+    def _report_driver_status(self, context):
+        curr_time = time.time()
+        if curr_time - self._last_host_check > FLAGS.host_state_interval:
+            self._last_host_check = curr_time
+            LOG.info(_("Updating host status"))
+            # This will grab info about the host and queue it
+            # to be sent to the Schedulers.
+            capabilities = self.driver.get_host_stats(refresh=True)
+            capabilities['host_ip'] = FLAGS.my_ip
+            self.update_service_capabilities(capabilities)
+
+    #/nova/manager.py: SchedulerDependentManager
+    @periodic_task
+    def _publish_service_capabilities(self, context):
+        """Pass data back to the scheduler at a periodic interval."""
+        if self.last_capabilities:
+            LOG.debug(_('Notifying Schedulers of capabilities ...'))
+            self.scheduler_rpcapi.update_service_capabilities(context,
+                    self.service_name, self.host, self.last_capabilities)
+
+    #/nova/schedule/host_manager.py: HostManager
+    def update_service_capabilities(self, service_name, host, capabilities):
+        """Update the per-service capabilities based on this notification."""
+        LOG.debug(_("Received %(service_name)s service update from "
+                    "%(host)s.") % locals())
+        service_caps = self.service_states.get(host, {})
+        # Copy the capabilities, so we don't modify the original dict
+        capab_copy = dict(capabilities)
+        capab_copy["timestamp"] = timeutils.utcnow()  # Reported time
+        service_caps[service_name] = capab_copy
+        self.service_states[host] = service_caps
+
+    def get_all_host_states(self, context, topic):
+        """Returns a dict of all the hosts the HostManager
+        knows about. Also, each of the consumable resources in HostState
+        are pre-populated and adjusted based on data in the db.
+
+        For example:
+        {'192.168.1.100': HostState(), ...}
+
+        Note: this can be very slow with a lot of instances.
+        InstanceType table isn't required since a copy is stored
+        with the instance (in case the InstanceType changed since the
+        instance was created)."""
+
+        if topic != 'compute':
+            raise NotImplementedError(_(
+                "host_manager only implemented for 'compute'"))
+
+        # Get resource usage across the available compute nodes:
+        compute_nodes = db.compute_node_get_all(context)
+        for compute in compute_nodes:
+            service = compute['service']
+            if not service:
+                LOG.warn(_("No service for compute ID %s") % compute['id'])
+                continue
+            host = service['host']
+            capabilities = self.service_states.get(host, None)
+            host_state = self.host_state_map.get(host)
+            if host_state:
+                host_state.update_capabilities(topic, capabilities,
+                                               dict(service.iteritems()))
+            else:
+                host_state = self.host_state_cls(host, topic,
+                        capabilities=capabilities,
+                        service=dict(service.iteritems()))
+                self.host_state_map[host] = host_state
+            host_state.update_from_compute_node(compute)
+
+        return self.host_state_map
+{% endhighlight%}
+
+{% highlight python %}
 #/nova/compute/manager.py:ComputeManager
 @manager.periodic_task
 def update_available_resource(self, context):
-    """See driver.get_available_resource()
-
-    Periodic process that keeps that the compute host's understanding of
-    resource availability and usage in sync with the underlying hypervisor.                                                                                       :param context: security context
-    """
     #self.resource_tracker = resource_tracker.ResourceTracker(host, driver)
     self.resource_tracker.update_available_resource(context)
 
 #/nova/compute/resource_tracker.py:ResourceTracker
 @utils.synchronized(COMPUTE_RESOURCE_SEMAPHORE)
 def update_available_resource(self, context):
-    """Override in-memory calculations of compute node resource usage based
-    on data audited from the hypervisor layer.
-
-    Add in resource claims in progress to account for operations that have
-    declared a need for resources, but not necessarily retrieved them from
-    the hypervisor layer yet.
-    """
     resources = self.driver.get_available_resource()
-    if not resources:                                                                  # The virt driver does not support this function
-        LOG.audit(_("Virt driver does not support "
-            "'get_available_resource'  Compute tracking is disabled."))
-        self.compute_node = None
-        self.claims = {}
-        return
-
     #self._verify_resources(resources)
     #self._report_hypervisor_resource_view(resources)
-
     self._purge_expired_claims()
-
     instances = db.instance_get_all_by_host(context, self.host)
     self._update_usage_from_instances(resources, instances)
     #self._report_final_resource_view(resources)
-
     self._sync_compute_node(context, resources)
 
 def _sync_compute_node(self, context, resources):
@@ -146,6 +249,7 @@ def _update_usage_from_instance(self, resources, instance):
         resources['current_workload'] = self.stats.calculate_workload()
         resources['stats'] = self.stats
 
+"""libvirt.driver.get_available_resource""""
 
 def get_available_resource(self):
     """Retrieve resource info.
@@ -220,7 +324,7 @@ def get_available_resource(self):
 
            'hypervisor_type': self.get_hypervisor_type(), #conn.get_type()=QEMU
            'hypervisor_version': self.get_hypervisor_version(), #conn.getVersion()=1003001
-           'hypervisor_hostname': self.get_hypervisor_hostname(),#conn.getHostname()=eayun-manager
+           'hypervisor_hostname': self.get_hypervisor_hostname(),#conn.getHostname()=trystack-manager
            'cpu_info': self.get_cpu_info(), #cpu architure
            'disk_available_least': self.get_disk_available_least()}
     return dic
@@ -393,3 +497,5 @@ def get_vcpu_used(self):
             greenthread.sleep(0)
         return total
 
+
+{% endhighlight %}

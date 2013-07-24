@@ -670,12 +670,12 @@ pre code{
   float: right;
 }
 .ie .layout-page .unit-body .unit-body-inner {
-  width: 43.125em;
+  width: 53.125em;
   margin-left: auto;
   margin-right: auto;
 }
 .ie .layout-page .unit-body .article-list {
-  width: 43.125em;
+  width: 53.125em;
 }
 .ie .layout-page .unit-body .article-list .meta {
   width: 20.625em;
@@ -755,13 +755,13 @@ pre code{
 */
 @media only screen and (min-width: 768px) {
   .the-header .unit-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .unit-article .unit-head-inner,
   .unit-article .entry-content,
   .unit-article .misc-content,
   .unit-article .unit-foot-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .unit-article .unit-head-inner .meta {
     margin-bottom: 0;
@@ -770,10 +770,10 @@ pre code{
     float: right;
   }
   .layout-page .unit-body .unit-body-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list .meta {
     margin-bottom: 0;
@@ -782,7 +782,7 @@ pre code{
     float: right;
   }
   .the-footer .unit-foot {
-    width: 43.125em;
+    width: 53.125em;
   }
 }
 /*
@@ -806,7 +806,7 @@ pre code{
   .unit-article .entry-content,
   .unit-article .misc-content,
   .unit-article .unit-foot-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .unit-article .unit-foot .pagination {
     float: left;
@@ -819,10 +819,10 @@ pre code{
     width: 20.625em;
   }
   .layout-page .unit-body .unit-body-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list .meta {
     width: 20.625em;
@@ -839,13 +839,13 @@ pre code{
     width: 88.125em;
   }
   .the-header .logo {
-    width: 43.125em;
+    width: 53.125em;
   }
   .the-header .nav-global {
-    width: 43.125em;
+    width: 53.125em;
   }
   .unit-article .unit-head-inner, .unit-article .entry-content, .unit-article .misc-content {
-    width: 43.125em;
+    width: 53.125em;
   }
   .unit-article .unit-foot-inner {
     width: 88.125em;
@@ -858,10 +858,10 @@ pre code{
     width: 9.375em;
   }
   .layout-page .unit-body .unit-body-inner {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list {
-    width: 43.125em;
+    width: 53.125em;
   }
   .layout-page .unit-body .article-list .meta {
     width: 20.625em;
