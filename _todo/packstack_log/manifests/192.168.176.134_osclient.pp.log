@@ -1,0 +1,5 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 5.41 seconds[0m
+[mNotice: /Stage[main]/Main/Package[python-novaclient]/ensure: created[0m
+[mNotice: /Stage[main]/Main/File[/root/keystonerc_admin]/ensure: created[0m
+[mNotice: Finished catalog run in 64.44 seconds[0m

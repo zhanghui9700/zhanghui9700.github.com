@@ -1,0 +1,48 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 13.37 seconds[0m
+[mNotice: /Stage[main]/Glance/Package[glance]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Backend::File/Glance_api_config[DEFAULT/filesystem_store_datadir]/ensure: created[0m
+[mNotice: /Stage[main]/Glance/File[/etc/glance/]/owner: owner changed 'root' to 'glance'[0m
+[mNotice: /Stage[main]/Glance/File[/etc/glance/]/mode: mode changed '0755' to '0770'[0m
+[mNotice: /Stage[main]/Main/Add_allow_host[ALL]/Firewall[001 glance incoming ALL]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/File[/etc/glance/glance-cache.conf]/owner: owner changed 'root' to 'glance'[0m
+[mNotice: /Stage[main]/Glance::Api/File[/etc/glance/glance-api-paste.ini]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/File[/etc/glance/glance-api.conf]/owner: owner changed 'root' to 'glance'[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/debug]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/admin_user]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/sql_connection]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/auth_port]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/auth_host]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/File[/etc/glance/glance-registry.conf]/owner: owner changed 'root' to 'glance'[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/admin_password]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[paste_deploy/flavor]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/auth_host]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/use_syslog]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/verbose]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/auth_port]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/admin_password]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/admin_tenant_name]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/admin_tenant_name]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/log_file]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/auth_protocol]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[paste_deploy/flavor]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/admin_password]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/use_syslog]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/sql_connection]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/auth_uri]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/auth_protocol]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[keystone_authtoken/admin_user]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/File[/etc/glance/glance-registry-paste.ini]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/auth_uri]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/debug]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/debug]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_api_config[DEFAULT/verbose]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[DEFAULT/verbose]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/admin_tenant_name]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Glance_registry_config[keystone_authtoken/admin_user]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Api/Glance_cache_config[DEFAULT/auth_url]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Registry/Exec[glance-manage db_sync]: Triggered 'refresh' from 34 events[0m
+[mNotice: /Stage[main]/Glance::Registry/Service[glance-registry]/ensure: ensure changed 'stopped' to 'running'[0m
+[mNotice: /Stage[main]/Glance::Api/Service[glance-api]/ensure: ensure changed 'stopped' to 'running'[0m
+[mNotice: Finished catalog run in 133.68 seconds[0m

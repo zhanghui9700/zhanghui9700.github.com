@@ -1,0 +1,8 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 8.08 seconds[0m
+[mNotice: /Stage[main]/Main/Add_allow_host[192.168.176.134]/Firewall[001 qpid incoming 192.168.176.134]/ensure: created[0m
+[mNotice: /Stage[main]/Qpid::Server/Package[qpid-cpp-server]/ensure: created[0m
+[mNotice: /Stage[main]/Qpid::Server/File[/etc/qpidd.conf]/content: content changed '{md5}312dd95456872c6af6969039173203ce' to '{md5}cdb0bc4addcfec9a3fa225c50a971e65'[0m
+[mNotice: /Stage[main]/Qpid::Server/Service[qpidd]/ensure: ensure changed 'stopped' to 'running'[0m
+[mNotice: Finished catalog run in 103.83 seconds[0m

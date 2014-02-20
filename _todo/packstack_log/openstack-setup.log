@@ -1,0 +1,62 @@
+2014-03-11 02:19:55::INFO::shell::78::root:: [localhost] Executing script:
+ssh-keygen -f "/root/.ssh/id_rsa" -N ""
+##############prescript_000.py
+##############install_keys
+rm -rf /var/tmp/packstack/20140311-021953-p2xkwu/manifests/*pp
+mkdir -p ~/.ssh
+chmod 500 ~/.ssh
+grep 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA2IynJVN6GRtJ6DFGZeBqrQvEkiZZ+YgWIzHefRNNNQrZ3mTUpF2cqMAXiP06dbkQq4u7wRGfA9uFo9P0hYqDAIDMh1AT+7YhnVEL7MlSQvqdG4qU11oHqoGnlsV3ETeZH7MRWHtkz/4Osr0SwJSDhHP/MQQm1dr+e6enXcmn2MOXLnQJrEDSOKyWspLFsLuxxWT0xRabS2YjDzGuiDPOVhg9LJv/CNwTLvSDy2J9BvhwfEz7n96aFF7+9tluuMJhCnrbEmiudlwVYz21I2K3dy7kuhhutgqIHAc/j9if5XLHp9K8GfZ6pJ25DeTBGDqoZRnLrBZ30tsEsS+MoBvHAQ== root@vagrant-centos65.vagrantup.com' ~/.ssh/authorized_keys > /dev/null 2>&1 || echo ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA2IynJVN6GRtJ6DFGZeBqrQvEkiZZ+YgWIzHefRNNNQrZ3mTUpF2cqMAXiP06dbkQq4u7wRGfA9uFo9P0hYqDAIDMh1AT+7YhnVEL7MlSQvqdG4qU11oHqoGnlsV3ETeZH7MRWHtkz/4Osr0SwJSDhHP/MQQm1dr+e6enXcmn2MOXLnQJrEDSOKyWspLFsLuxxWT0xRabS2YjDzGuiDPOVhg9LJv/CNwTLvSDy2J9BvhwfEz7n96aFF7+9tluuMJhCnrbEmiudlwVYz21I2K3dy7kuhhutgqIHAc/j9if5XLHp9K8GfZ6pJ25DeTBGDqoZRnLrBZ30tsEsS+MoBvHAQ== root@vagrant-centos65.vagrantup.com >> ~/.ssh/authorized_keys
+chmod 400 ~/.ssh/authorized_keys
+restorecon -r ~/.ssh
+##############install_keys-end
+##############discover
+cat /etc/redhat-release
+mkdir -p /var/tmp/packstack
+mkdir --mode 0700 /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06
+mkdir --mode 0700 /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules
+mkdir --mode 0700 /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/resources
+##############discover-end
+2014-03-11 02:20:12::INFO::shell::78::root:: [192.168.176.134] Executing script:
+echo $HOME
+2014-03-11 02:20:13::INFO::shell::78::root:: [192.168.176.134] Executing script:
+rpm -q --whatprovides yum-utils || yum install -y yum-utils
+2014-03-11 02:20:19::INFO::shell::78::root:: [192.168.176.134] Executing script:
+REPOFILE=$(mktemp)
+cat /etc/yum.conf > $REPOFILE
+echo -e '[packstack-epel]
+name=packstack-epel
+enabled=1
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch' >> $REPOFILE
+( rpm -q --whatprovides epel-release || yum install -y --nogpg -c $REPOFILE epel-release ) || true
+rm -rf $REPOFILE
+2014-03-11 02:20:19::INFO::shell::78::root:: [192.168.176.134] Executing script:
+yum-config-manager --enable epel
+2014-03-11 02:20:23::INFO::shell::34::root:: Executing command:
+rpm -q rdo-release --qf='%{version}-%{release}.%{arch}
+'
+2014-03-11 02:20:23::INFO::shell::78::root:: [192.168.176.134] Executing script:
+(rpm -q 'rdo-release-havana' || yum install -y --nogpg http://rdo.fedorapeople.org/openstack/openstack-havana/rdo-release-havana-7.noarch.rpm) || true
+2014-03-11 02:20:24::INFO::shell::78::root:: [192.168.176.134] Executing script:
+yum-config-manager --enable openstack-havana
+2014-03-11 02:20:27::INFO::shell::78::root:: [192.168.176.134] Executing script:
+yum install -y yum-plugin-priorities || true
+rpm -q epel-release && yum-config-manager --setopt="rhel-server-ost-6-4-rpms.priority=1" --save rhel-server-ost-6-4-rpms
+yum clean metadata
+2014-03-11 02:20:54::INFO::shell::78::root:: [192.168.176.134] Executing script:
+rpm -q --whatprovides puppet || yum install -y puppet
+rpm -q --whatprovides openssh-clients || yum install -y openssh-clients
+rpm -q --whatprovides tar || yum install -y tar
+rpm -q --whatprovides nc || yum install -y nc
+2014-03-11 02:25:47::INFO::shell::78::root:: [localhost] Executing script:
+cd /usr/lib/python2.6/site-packages/packstack/puppet
+tar --dereference -cpzf - facts | ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.176.134 tar -C /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06 -xpzf -
+cd /var/tmp/packstack/20140311-021953-p2xkwu/manifests
+tar --dereference -cpzf - ../manifests | ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.176.134 tar -C /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06 -xpzf -
+cd /usr/lib/python2.6/site-packages/packstack/puppet/modules
+tar --dereference -cpzf - apache ceilometer certmonger cinder concat firewall glance heat horizon inifile keystone memcached mongodb mysql neutron nova nssdb openstack packstack qpid rsync ssh stdlib swift sysctl tempest vcsrepo vlan vswitch xinetd | ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.176.134 tar -C /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules -xpzf -
+2014-03-11 03:14:29::INFO::shell::78::root:: [192.168.176.134] Executing script:
+installed=$(rpm -q kernel --last | head -n1 | sed 's/kernel-\([a-z0-9\.\_\-]*\).*/\1/g')
+loaded=$(uname -r | head -n1)
+[ "$loaded" == "$installed" ]
+2014-03-11 03:14:30::INFO::shell::78::root:: [192.168.176.134] Executing script:
+rm -rf /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06

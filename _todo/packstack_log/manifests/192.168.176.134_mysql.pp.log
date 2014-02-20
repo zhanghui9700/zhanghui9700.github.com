@@ -1,0 +1,58 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[1;31mWarning: Variable access via 'root_password' is deprecated. Use '@root_password' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.pass.erb]:4
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.pass.erb:4:in `result')[0m
+[1;31mWarning: Variable access via 'root_password' is deprecated. Use '@root_password' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.pass.erb]:5
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.pass.erb:5:in `result')[0m
+[1;31mWarning: Variable access via 'port' is deprecated. Use '@port' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:2
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:2:in `result')[0m
+[1;31mWarning: Variable access via 'socket' is deprecated. Use '@socket' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:3
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:3:in `result')[0m
+[1;31mWarning: Variable access via 'socket' is deprecated. Use '@socket' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:5
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:5:in `result')[0m
+[1;31mWarning: Variable access via 'pidfile' is deprecated. Use '@pidfile' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:9
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:9:in `result')[0m
+[1;31mWarning: Variable access via 'socket' is deprecated. Use '@socket' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:10
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:10:in `result')[0m
+[1;31mWarning: Variable access via 'port' is deprecated. Use '@port' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:11
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:11:in `result')[0m
+[1;31mWarning: Variable access via 'basedir' is deprecated. Use '@basedir' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:12
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:12:in `result')[0m
+[1;31mWarning: Variable access via 'datadir' is deprecated. Use '@datadir' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:13
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:13:in `result')[0m
+[1;31mWarning: Variable access via 'bind_address' is deprecated. Use '@bind_address' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:17
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:17:in `result')[0m
+[1;31mWarning: Variable access via 'bind_address' is deprecated. Use '@bind_address' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:18
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:18:in `result')[0m
+[1;31mWarning: Variable access via 'log_error' is deprecated. Use '@log_error' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:28
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:28:in `result')[0m
+[1;31mWarning: Variable access via 'default_engine' is deprecated. Use '@default_engine' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:31
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:31:in `result')[0m
+[1;31mWarning: Variable access via 'default_engine' is deprecated. Use '@default_engine' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:32
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:32:in `result')[0m
+[1;31mWarning: Variable access via 'ssl' is deprecated. Use '@ssl' instead. template[/var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb]:34
+   (at /var/tmp/packstack/0e2d1c9e364349b7b50d49d0d4b9ec06/modules/mysql/templates/my.cnf.erb:34:in `result')[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 15.31 seconds[0m
+[mNotice: /Stage[main]/Mysql::Python/Package[python-mysqldb]/ensure: created[0m
+[mNotice: /Stage[main]/Mysql::Server/Package[mysql-server]/ensure: created[0m
+[mNotice: /Stage[main]/Mysql::Server/Service[mysqld]/ensure: ensure changed 'stopped' to 'running'[0m
+[mNotice: /Stage[main]/Main/Add_allow_host[192.168.176.134]/Firewall[001 mysql incoming 192.168.176.134]/ensure: created[0m
+[mNotice: /Stage[main]/Mysql::Config/File[/etc/mysql]/ensure: created[0m
+[mNotice: /Stage[main]/Mysql::Config/File[/etc/my.cnf]/content: content changed '{md5}8ace886bbe7e274448bc8bea16d3ead6' to '{md5}e44956aacd8409506162f909ebf530fe'[0m
+[mNotice: /Stage[main]/Mysql::Config/File[/etc/mysql/conf.d]/ensure: created[0m
+[mNotice: /Stage[main]/Mysql::Config/Exec[set_mysql_rootpw]/returns: executed successfully[0m
+[mNotice: /Stage[main]/Mysql::Config/File[/root/.my.cnf]/ensure: defined content as '{md5}38f649bf4060533495b924c8a532d962'[0m
+[mNotice: /Stage[main]/Mysql::Config/Exec[mysqld-restart]: Triggered 'refresh' from 5 events[0m
+[mNotice: /Stage[main]/Glance::Db::Mysql/Mysql::Db[glance]/Database[glance]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Db::Mysql/Glance::Db::Mysql::Host_access[%]/Database_user[glance@%]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Db::Mysql/Glance::Db::Mysql::Host_access[%]/Database_grant[glance@%/glance]/privileges: privileges changed '' to 'all'[0m
+[mNotice: /Stage[main]/Main/Database_user[@localhost]/ensure: removed[0m
+[mNotice: /Stage[main]/Main/Database_user[root@127.0.0.1]/ensure: removed[0m
+[mNotice: /Stage[main]/Keystone::Db::Mysql/Mysql::Db[keystone]/Database[keystone]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Db::Mysql/Mysql::Db[keystone]/Database_user[keystone_admin@127.0.0.1]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Db::Mysql/Mysql::Db[keystone]/Database_grant[keystone_admin@127.0.0.1/keystone]/privileges: privileges changed '' to 'all'[0m
+[mNotice: /Stage[main]/Keystone::Db::Mysql/Keystone::Db::Mysql::Host_access[%]/Database_user[keystone_admin@%]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Db::Mysql/Keystone::Db::Mysql::Host_access[%]/Database_grant[keystone_admin@%/keystone]/privileges: privileges changed '' to 'all'[0m
+[mNotice: /Stage[main]/Glance::Db::Mysql/Mysql::Db[glance]/Database_user[glance@127.0.0.1]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Db::Mysql/Mysql::Db[glance]/Database_grant[glance@127.0.0.1/glance]/privileges: privileges changed '' to 'all'[0m
+[mNotice: Finished catalog run in 208.66 seconds[0m

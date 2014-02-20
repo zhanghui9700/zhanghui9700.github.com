@@ -1,0 +1,7 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 4.83 seconds[0m
+[mNotice: /Stage[main]/Main/Package[openstack-selinux]/ensure: created[0m
+[mNotice: /Stage[main]/Packstack::Netns/Exec[netns_dependecy_install]/returns: executed successfully[0m
+[mNotice: The RDO kernel that includes network namespace (netns) support has been installed on host 10.0.2.15.[0m
+[mNotice: /Stage[main]/Packstack::Netns/Notify[packstack_info]/message: defined 'message' as 'The RDO kernel that includes network namespace (netns) support has been installed on host 10.0.2.15.'[0m
+[mNotice: Finished catalog run in 465.57 seconds[0m

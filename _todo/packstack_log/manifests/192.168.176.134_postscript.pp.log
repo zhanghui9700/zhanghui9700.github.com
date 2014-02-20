@@ -1,0 +1,4 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 0.43 seconds[0m
+[mNotice: /Stage[main]/Main/Exec[update-selinux-policy]/returns: executed successfully[0m
+[mNotice: Finished catalog run in 40.22 seconds[0m

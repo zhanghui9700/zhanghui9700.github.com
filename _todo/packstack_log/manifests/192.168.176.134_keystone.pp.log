@@ -1,0 +1,40 @@
+[1;31mWarning: Could not retrieve fact fqdn[0m
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[mNotice: Compiled catalog for vagrant-centos65 in environment production in 14.30 seconds[0m
+[mNotice: /Stage[main]/Main/Cron[token-flush]/ensure: created[0m
+[mNotice: /Stage[main]/Main/Add_allow_host[ALL]/Firewall[001 keystone incoming ALL]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Package[keystone]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/File[/var/lib/keystone]/mode: mode changed '0755' to '0750'[0m
+[mNotice: /Stage[main]/Keystone/File[/var/cache/keystone]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/File[/etc/keystone]/owner: owner changed 'root' to 'keystone'[0m
+[mNotice: /Stage[main]/Keystone/File[/etc/keystone/keystone.conf]/owner: owner changed 'root' to 'keystone'[0m
+[mNotice: /Stage[main]/Keystone/File[/etc/keystone/keystone.conf]/mode: mode changed '0640' to '0600'[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[catalog/driver]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[signing/token_format]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[sql/connection]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/public_port]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/use_syslog]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/compute_port]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/debug]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[sql/idle_timeout]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[token/driver]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/admin_token]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/bind_host]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/admin_port]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Keystone_config[DEFAULT/verbose]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone/Exec[keystone-manage db_sync]: Triggered 'refresh' from 14 events[0m
+[mNotice: /Stage[main]/Keystone/Exec[keystone-manage pki_setup]: Triggered 'refresh' from 14 events[0m
+[mNotice: /Stage[main]/Keystone/Service[keystone]/ensure: ensure changed 'stopped' to 'running'[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_tenant[admin]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_role[Member]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_tenant[services]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Keystone::Auth/Keystone_user[glance]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_role[admin]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Keystone::Auth/Keystone_user_role[glance@services]/roles: roles changed ['_member_'] to 'admin'[0m
+[mNotice: /Stage[main]/Keystone::Endpoint/Keystone_service[keystone]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Endpoint/Keystone_endpoint[RegionOne/keystone]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Keystone::Auth/Keystone_service[glance]/ensure: created[0m
+[mNotice: /Stage[main]/Glance::Keystone::Auth/Keystone_endpoint[RegionOne/glance]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_user[admin]/ensure: created[0m
+[mNotice: /Stage[main]/Keystone::Roles::Admin/Keystone_user_role[admin@admin]/ensure: created[0m
+[mNotice: Finished catalog run in 405.98 seconds[0m

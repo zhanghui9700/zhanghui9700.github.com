@@ -1,0 +1,398 @@
+[general]
+
+# Path to a Public key to install on servers. If a usable key has not
+# been installed on the remote servers the user will be prompted for a
+# password and this key will be installed so the password will not be
+# required again
+CONFIG_SSH_KEY=
+
+# Set to 'y' if you would like Packstack to install MySQL
+CONFIG_MYSQL_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack Image
+# Service (Glance)
+CONFIG_GLANCE_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack Block
+# Storage (Cinder)
+CONFIG_CINDER_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack Compute
+# (Nova)
+CONFIG_NOVA_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack
+# Networking (Neutron)
+CONFIG_NEUTRON_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack
+# Dashboard (Horizon)
+CONFIG_HORIZON_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install OpenStack Object
+# Storage (Swift)
+CONFIG_SWIFT_INSTALL=n
+
+# Set to 'y' if you would like Packstack to install OpenStack
+# Metering (Ceilometer)
+CONFIG_CEILOMETER_INSTALL=y
+
+# Set to 'y' if you would like Packstack to install Heat
+CONFIG_HEAT_INSTALL=n
+
+# Set to 'y' if you would like Packstack to install the OpenStack
+# Client packages. An admin "rc" file will also be installed
+CONFIG_CLIENT_INSTALL=y
+
+# Comma separated list of NTP servers. Leave plain if Packstack
+# should not install ntpd on instances.
+CONFIG_NTP_SERVERS=
+
+# Set to 'y' if you would like Packstack to install Nagios to monitor
+# openstack hosts
+CONFIG_NAGIOS_INSTALL=n
+
+# Comma separated list of servers to be excluded from installation in
+# case you are running Packstack the second time with the same answer
+# file and don't want Packstack to touch these servers. Leave plain if
+# you don't need to exclude any server.
+EXCLUDE_SERVERS=
+
+# The IP address of the server on which to install MySQL
+CONFIG_MYSQL_HOST=172.16.200.1
+
+# Username for the MySQL admin user
+CONFIG_MYSQL_USER=root
+
+# Password for the MySQL admin user
+CONFIG_MYSQL_PW=1279e9bb292c48e5
+
+# The IP address of the server on which to install the QPID service
+CONFIG_QPID_HOST=172.16.200.1
+
+# The IP address of the server on which to install Keystone
+CONFIG_KEYSTONE_HOST=172.16.200.1
+
+# The password to use for the Keystone to access DB
+CONFIG_KEYSTONE_DB_PW=6cde8da7a3ca4bc0
+
+# The token to use for the Keystone service api
+CONFIG_KEYSTONE_ADMIN_TOKEN=c9a7f68c19e448b48c9f520df5771851
+
+# The password to use for the Keystone admin user
+CONFIG_KEYSTONE_ADMIN_PW=6fa29c9cb0264385
+
+# The password to use for the Keystone demo user
+CONFIG_KEYSTONE_DEMO_PW=6dc04587dd234ac9
+
+# Kestone token format. Use either UUID or PKI
+CONFIG_KEYSTONE_TOKEN_FORMAT=PKI
+
+# The IP address of the server on which to install Glance
+CONFIG_GLANCE_HOST=172.16.200.1
+
+# The password to use for the Glance to access DB
+CONFIG_GLANCE_DB_PW=1c135a665b70481d
+
+# The password to use for the Glance to authenticate with Keystone
+CONFIG_GLANCE_KS_PW=9c32f5a3bfb54966
+
+# The IP address of the server on which to install Cinder
+CONFIG_CINDER_HOST=172.16.200.1
+
+# The password to use for the Cinder to access DB
+CONFIG_CINDER_DB_PW=d9e997c7f6ec4f3b
+
+# The password to use for the Cinder to authenticate with Keystone
+CONFIG_CINDER_KS_PW=ae0e15732c104989
+
+# The Cinder backend to use, valid options are: lvm, gluster, nfs
+CONFIG_CINDER_BACKEND=lvm
+
+# Create Cinder's volumes group. This should only be done for testing
+# on a proof-of-concept installation of Cinder.  This will create a
+# file-backed volume group and is not suitable for production usage.
+CONFIG_CINDER_VOLUMES_CREATE=y
+
+# Cinder's volumes group size. Note that actual volume size will be
+# extended with 3% more space for VG metadata.
+CONFIG_CINDER_VOLUMES_SIZE=20G
+
+# A single or comma separated list of gluster volume shares to mount,
+# eg: ip-address:/vol-name
+CONFIG_CINDER_GLUSTER_MOUNTS=172.16.0.5:/CINDER
+
+# A single or comma seprated list of NFS exports to mount, eg: ip-
+# address:/export-name
+CONFIG_CINDER_NFS_MOUNTS=
+
+# The IP address of the server on which to install the Nova API
+# service
+CONFIG_NOVA_API_HOST=172.16.200.1
+
+# The IP address of the server on which to install the Nova Cert
+# service
+CONFIG_NOVA_CERT_HOST=172.16.200.1
+
+# The IP address of the server on which to install the Nova VNC proxy
+CONFIG_NOVA_VNCPROXY_HOST=192.168.176.184
+
+# A comma separated list of IP addresses on which to install the Nova
+# Compute services
+CONFIG_NOVA_COMPUTE_HOSTS=172.16.200.1,172.16.200.2
+
+# The IP address of the server on which to install the Nova Conductor
+# service
+CONFIG_NOVA_CONDUCTOR_HOST=172.16.200.1
+
+# The password to use for the Nova to access DB
+CONFIG_NOVA_DB_PW=34bf4442200c4c93
+
+# The password to use for the Nova to authenticate with Keystone
+CONFIG_NOVA_KS_PW=beaf384bc2b941ca
+
+# The IP address of the server on which to install the Nova Scheduler
+# service
+CONFIG_NOVA_SCHED_HOST=172.16.200.1
+
+# The overcommitment ratio for virtual to physical CPUs. Set to 1.0
+# to disable CPU overcommitment
+CONFIG_NOVA_SCHED_CPU_ALLOC_RATIO=32.0
+
+# The overcommitment ratio for virtual to physical RAM. Set to 1.0 to
+# disable RAM overcommitment
+CONFIG_NOVA_SCHED_RAM_ALLOC_RATIO=3.0
+
+# Private interface for Flat DHCP on the Nova compute servers
+CONFIG_NOVA_COMPUTE_PRIVIF=eth0
+
+# The list of IP addresses of the server on which to install the Nova
+# Network service
+CONFIG_NOVA_NETWORK_HOSTS=172.16.200.1
+
+# Nova network manager
+CONFIG_NOVA_NETWORK_MANAGER=nova.network.manager.FlatDHCPManager
+
+# Public interface on the Nova network server
+CONFIG_NOVA_NETWORK_PUBIF=eth1
+
+# Private interface for network manager on the Nova network server
+CONFIG_NOVA_NETWORK_PRIVIF=eth0
+
+# IP Range for network manager
+CONFIG_NOVA_NETWORK_FIXEDRANGE=192.168.32.0/22
+
+# IP Range for Floating IP's
+CONFIG_NOVA_NETWORK_FLOATRANGE=10.3.4.0/22
+
+# Name of the default floating pool to which the specified floating
+# ranges are added to
+CONFIG_NOVA_NETWORK_DEFAULTFLOATINGPOOL=nova
+
+# Automatically assign a floating IP to new instances
+CONFIG_NOVA_NETWORK_AUTOASSIGNFLOATINGIP=n
+
+# First VLAN for private networks
+CONFIG_NOVA_NETWORK_VLAN_START=100
+
+# Number of networks to support
+CONFIG_NOVA_NETWORK_NUMBER=1
+
+# Number of addresses in each private subnet
+CONFIG_NOVA_NETWORK_SIZE=255
+
+# The IP addresses of the server on which to install the Neutron
+# server
+CONFIG_NEUTRON_SERVER_HOST=172.16.200.1
+
+# The password to use for Neutron to authenticate with Keystone
+CONFIG_NEUTRON_KS_PW=53d71f31745b431e
+
+# The password to use for Neutron to access DB
+CONFIG_NEUTRON_DB_PW=ab7d7088075b4727
+
+# A comma separated list of IP addresses on which to install Neutron
+# L3 agent
+CONFIG_NEUTRON_L3_HOSTS=172.16.200.1
+
+# The name of the bridge that the Neutron L3 agent will use for
+# external traffic, or 'provider' if using provider networks
+CONFIG_NEUTRON_L3_EXT_BRIDGE=br-ex
+
+# A comma separated list of IP addresses on which to install Neutron
+# DHCP agent
+CONFIG_NEUTRON_DHCP_HOSTS=172.16.200.1
+
+# The name of the L2 plugin to be used with Neutron
+CONFIG_NEUTRON_L2_PLUGIN=openvswitch
+
+# A comma separated list of IP addresses on which to install Neutron
+# metadata agent
+CONFIG_NEUTRON_METADATA_HOSTS=172.16.200.1
+
+# A comma separated list of IP addresses on which to install Neutron
+# metadata agent
+CONFIG_NEUTRON_METADATA_PW=d7ae6de0e6ef4d5e
+
+# The type of network to allocate for tenant networks
+CONFIG_NEUTRON_LB_TENANT_NETWORK_TYPE=local
+
+# A comma separated list of VLAN ranges for the Neutron linuxbridge
+# plugin
+CONFIG_NEUTRON_LB_VLAN_RANGES=
+
+# A comma separated list of interface mappings for the Neutron
+# linuxbridge plugin
+CONFIG_NEUTRON_LB_INTERFACE_MAPPINGS=
+
+# Type of network to allocate for tenant networks
+CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=vlan
+
+# A comma separated list of VLAN ranges for the Neutron openvswitch
+# plugin
+CONFIG_NEUTRON_OVS_VLAN_RANGES=physnet1:10:20
+
+# A comma separated list of bridge mappings for the Neutron
+# openvswitch plugin
+CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=physnet1:br-eth1
+
+# A comma separated list of colon-separated OVS bridge:interface
+# pairs. The interface will be added to the associated bridge.
+CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-eth1:eth1
+
+# A comma separated list of tunnel ranges for the Neutron openvswitch
+# plugin
+CONFIG_NEUTRON_OVS_TUNNEL_RANGES=
+
+# Override the IP used for GRE tunnels on this hypervisor to the IP
+# found on the specified interface (defaults to the HOST IP)
+CONFIG_NEUTRON_OVS_TUNNEL_IF=
+
+# The IP address of the server on which to install the OpenStack
+# client packages. An admin "rc" file will also be installed
+CONFIG_OSCLIENT_HOST=172.16.200.1
+
+# The IP address of the server on which to install Horizon
+CONFIG_HORIZON_HOST=172.16.200.1
+
+# To set up Horizon communication over https set this to "y"
+CONFIG_HORIZON_SSL=n
+
+# PEM encoded certificate to be used for ssl on the https server,
+# leave blank if one should be generated, this certificate should not
+# require a passphrase
+CONFIG_SSL_CERT=
+
+# Keyfile corresponding to the certificate if one was entered
+CONFIG_SSL_KEY=
+
+# The IP address on which to install the Swift proxy service
+# (currently only single proxy is supported)
+CONFIG_SWIFT_PROXY_HOSTS=172.16.200.1
+
+# The password to use for the Swift to authenticate with Keystone
+CONFIG_SWIFT_KS_PW=311d3891e9e140b9
+
+# A comma separated list of IP addresses on which to install the
+# Swift Storage services, each entry should take the format
+# <ipaddress>[/dev], for example 127.0.0.1/vdb will install /dev/vdb
+# on 127.0.0.1 as a swift storage device(packstack does not create the
+# filesystem, you must do this first), if /dev is omitted Packstack
+# will create a loopback device for a test setup
+CONFIG_SWIFT_STORAGE_HOSTS=172.16.200.1
+
+# Number of swift storage zones, this number MUST be no bigger than
+# the number of storage devices configured
+CONFIG_SWIFT_STORAGE_ZONES=1
+
+# Number of swift storage replicas, this number MUST be no bigger
+# than the number of storage zones configured
+CONFIG_SWIFT_STORAGE_REPLICAS=1
+
+# FileSystem type for storage nodes
+CONFIG_SWIFT_STORAGE_FSTYPE=ext4
+
+# Whether to provision for demo usage and testing
+CONFIG_PROVISION_DEMO=n
+
+# The CIDR network address for the floating IP subnet
+CONFIG_PROVISION_DEMO_FLOATRANGE=172.24.4.224/28
+
+# Whether to configure tempest for testing
+CONFIG_PROVISION_TEMPEST=n
+
+# The uri of the tempest git repository to use
+CONFIG_PROVISION_TEMPEST_REPO_URI=https://github.com/openstack/tempest.git
+
+# The revision of the tempest git repository to use
+CONFIG_PROVISION_TEMPEST_REPO_REVISION=master
+
+# Whether to configure the ovs external bridge in an all-in-one
+# deployment
+CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=n
+
+# The IP address of the server on which to install Heat service
+CONFIG_HEAT_HOST=172.16.200.1
+
+# The password used by Heat user to authenticate against MySQL
+CONFIG_HEAT_DB_PW=0f593f0e8ac94b20
+
+# The password to use for the Heat to authenticate with Keystone
+CONFIG_HEAT_KS_PW=22a4dee89e0e490b
+
+# Set to 'y' if you would like Packstack to install Heat CloudWatch
+# API
+CONFIG_HEAT_CLOUDWATCH_INSTALL=n
+
+# Set to 'y' if you would like Packstack to install Heat
+# CloudFormation API
+CONFIG_HEAT_CFN_INSTALL=n
+
+# The IP address of the server on which to install Heat CloudWatch
+# API service
+CONFIG_HEAT_CLOUDWATCH_HOST=172.16.200.1
+
+# The IP address of the server on which to install Heat
+# CloudFormation API service
+CONFIG_HEAT_CFN_HOST=172.16.200.1
+
+# The IP address of the server on which to install Ceilometer
+CONFIG_CEILOMETER_HOST=172.16.200.1
+
+# Secret key for signing metering messages.
+CONFIG_CEILOMETER_SECRET=70ca460aa5354ef8
+
+# The password to use for Ceilometer to authenticate with Keystone
+CONFIG_CEILOMETER_KS_PW=72858e26b4cd40c2
+
+# To subscribe each server to EPEL enter "y"
+CONFIG_USE_EPEL=n
+
+# A comma separated list of URLs to any additional yum repositories
+# to install
+CONFIG_REPO=
+
+# The IP address of the server on which to install the Nagios server
+CONFIG_NAGIOS_HOST=172.16.200.1
+
+# The password of the nagiosadmin user on the Nagios server
+CONFIG_NAGIOS_PW=c3832621eebd4d48
+
+#############################
+CONFIG_QPID_ENABLE_SSL=n
+CONFIG_QPID_ENABLE_AUTH=n
+
+CONFIG_NEUTRON_LBAAS_HOSTS=
+
+CONFIG_RH_USER=
+CONFIG_RH_PW=
+CONFIG_RH_BETA_REPO=n
+CONFIG_SATELLITE_URL=
+CONFIG_SATELLITE_USER=
+CONFIG_SATELLITE_PW=
+CONFIG_SATELLITE_AKEY=
+CONFIG_SATELLITE_CACERT=
+CONFIG_SATELLITE_PROFILE=
+CONFIG_SATELLITE_FLAGS=
+CONFIG_SATELLITE_PROXY=
+CONFIG_SATELLITE_PROXY_USER=
