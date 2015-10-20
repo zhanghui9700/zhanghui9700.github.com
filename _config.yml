@@ -1,5 +1,5 @@
 title:            Welcome to my life.
-description:      touch the cloud.
+description:      Touch The Cloud.
 reading_time:     false
 words_per_minute: 200
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -11,7 +11,7 @@ url: http://zhanghui9700.github.io
 owner:
   name:           hui.zhang
   avatar:         avatar.jpg
-  bio:            "Welcome to my life."
+  bio:            "Architect with 5 years in the Openstack world."
   email:          zhanghui9700(#)gmail.com
   # Social networking links used in footer. Update and remove as you like.
   twitter: 
@@ -27,12 +27,6 @@ owner:
 
 # Background image to be tiled on all pages
 background: 
-
-# Analytics and webmaster tools stuff goes here
-google_analytics:   
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/shanghai

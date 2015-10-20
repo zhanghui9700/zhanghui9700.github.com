@@ -1,34 +1,38 @@
 ---
-layout: page
-title: About the Jekyll Theme
-image:
-  feature: abstract-5.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+layout: post-index
+title: Hello World!
+description: "Describe this nonsense."
+tags: [Jekyll, theme, themes, responsive, blog, modern]
 comments: false
-modified: 2014-12-24
+image:
+  feature: abstract-1.jpg
+  #credit: dargadgetz
+  #creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+
 ---
 
-They say three times the charm, so here is another free responsive Jekyll blog theme for you. I've learned a ton since open sourcing my first two themes [on Github](http://github.com/mmistakes), and wanted to try a few new things this time around. 
+    Hi, Welcome to my blog.
 
-If you've used any of [my other themes](http://mademistakes.com/work/jekyll-themes/) most of this should be familiar territory...
+    About me
+        name     : hui.zhang
+        email    : zhanghui9700(at)gmail.com
+        location : beijing
 
-## What HPSTR brings to the table:
+    Skills
+        * Bachelor’s Degree in Computer Science
+        * 2+ years as a technical program manager since 2011
+        * 5+ years of professional software development experiences since 2007
+        * Proficiency in Python development on Linux platforms
+        * Familiar with c/c#/java/javascript/shell
+        * Familiar with MySQL/SQLServer/MongoDB/Redis
+        * Experience in open source development with openstack
+        * Familiar with github collaboration
 
-* Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
-* Gracefully degrads in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.  
-* Modern and minimal design.
-* Sweet animated menu.
-* Background image support.
-* Readable typography to make your words shine.
-* Support for large images to call out your favorite posts.
-* Built-in support for Sass courtesy of Jekyll 2.x.
-* Optional [Disqus](http://disqus.com) comments.
-* Simple and clear permalink structure[^1].
-* [Open Graph](https://developers.facebook.com/docs/opengraph/) and [Twitter Cards](https://dev.twitter.com/docs/cards) support for a better social sharing experience.
-* Simple [custom 404 page]({{ site.url }}/404.html) to get you started.
-* Stylesheets for Pygments and Coderay [syntax highlighting]({{ site.url }}/code-highlighting-post/) to make your code examples look snazzy.
+This blog is created by jekyll\[1\] and hosted by github\[2\] page service.
+This blog is distributed in the hope that it will be useful, but **WITHOUT ANY WARRANTY**;
+without even the implied warranty of **MERCHANTABILITY** or **FITNESS FOR A PARTICULAR PURPOSE**.
 
-<div markdown="0"><a href="{{ site.url }}/theme-setup/" class="btn btn-info">Theme Setup</a> <a href="https://github.com/mmistakes/hpstr-jekyll-theme" class="btn btn-success">Download HPSTR</a></div>
-
-[^1]: Example: *domain.com/category-name/post-title*
+---
+\[参考\] <br />
+[jekyll](http://jekyllrb.com/) <br />
+[github](https://www.github.com)  <br />
