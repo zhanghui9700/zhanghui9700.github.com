@@ -6,7 +6,6 @@ tags: [linux, openstack, ceph]
 
 ---
 
-{% include JB/setup %}
 
 ##prapare to install
     # for all nodes

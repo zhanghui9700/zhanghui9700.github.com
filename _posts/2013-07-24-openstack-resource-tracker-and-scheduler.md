@@ -5,7 +5,6 @@ category: openstack
 tag: [openstack, python]
 ---
 
-{% include JB/setup %}
 
 
 同事最近把jenkins里的openstack的压力测试跑起来了，压力测试的方案使用openstack项目中的[tempest](https://github.com/openstack/tempest)，

@@ -5,7 +5,6 @@ category: python
 tags: [python]
 ---
 
-{% include JB/setup %}
 
 最近在招人，招聘pythonista, 和我们一起搞openstack，所以想找几个能考察大家基础的小题目聊聊天，谈谈理想和人生，结果有篇[blog](http://ilian.i-n-i.org/python-interview-question-and-answers/)让人眼前一亮，转来让大家看一看，特别是那些在简历上动辄就精通ABC的同学真该回家面壁思考人生去了。
 

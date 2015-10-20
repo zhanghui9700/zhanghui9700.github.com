@@ -5,7 +5,6 @@ title: a chain of function decorators
 tags: [python, decorator]
 ---
 
-{% include JB/setup %}
 
 ### Question:
 >How can I make two decorators in Python that would do the following.

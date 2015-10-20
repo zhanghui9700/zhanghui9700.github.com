@@ -5,7 +5,6 @@ category: openstack
 tags: [linux, openstack, python]
 ---
 
-{% include JB/setup %}
 
 <a href="#get_my_ip">[1]Get My Host IP</a>
 </br>

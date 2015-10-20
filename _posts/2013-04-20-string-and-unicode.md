@@ -5,7 +5,6 @@ category : python
 tags : [python, string, unicode]
 ---
 
-{% include JB/setup %}
 
 ### exception
 

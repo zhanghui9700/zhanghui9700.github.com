@@ -5,7 +5,6 @@ category: openstack
 tags: [openstack, linux]
 ---
 
-{% include JB/setup %}
 
     qemu-img -h
 <br />

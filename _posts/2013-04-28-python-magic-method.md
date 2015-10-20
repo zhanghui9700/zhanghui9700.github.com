@@ -5,7 +5,6 @@ category: python
 tags: [python]
 ---
 
-{% include JB/setup %}
 
 >    Thanks for @Rafe Kettler, this post's author. <br />
 >    I will add some extra info to this post, to help chinese pythonistas to easy understand.

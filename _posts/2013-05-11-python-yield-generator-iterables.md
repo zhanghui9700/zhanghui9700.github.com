@@ -5,7 +5,6 @@ category: python
 tags: [python]
 ---
 
-{% include JB/setup %}
 
 一直想对python里的关键字[yield](http://docs.python.org/2/reference/expressions.html#grammar-token-yield_atom)仔细了解一下。
 今天终于沉得住气静的下心写个demo体会一下如何使用这个比较古怪的feature。

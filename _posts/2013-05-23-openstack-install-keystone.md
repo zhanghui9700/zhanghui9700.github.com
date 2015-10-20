@@ -5,7 +5,6 @@ category: openstack
 tags: [openstack, python]
 ---
 
-{% include JB/setup%}
 
 ### 1. 安装python基础依赖包
 

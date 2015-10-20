@@ -5,7 +5,6 @@ title: revovery openstack instance
 tags: [linux, openstack]
 ---
 
-{% include JB/setup %}
 
 
 在不能进行live-migeration或者block-migeration的情况下，客户需要将一个负载比较高的云主机迁移到负载比较低的物理服务器

@@ -5,7 +5,6 @@ category: life
 tags: [linux, python]
 ---
 
-{% include JB/setup %}
 
 ##### 公司用的是台式机，安装ubuntu12.04
 **uname -a**

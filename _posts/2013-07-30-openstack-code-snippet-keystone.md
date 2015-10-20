@@ -5,7 +5,6 @@ category: openstack
 tags: [linux, openstack, python]
 ---
 
-{% include JB/setup %}
 
 <a href="#user_passwd">[1]Check User Password</a>
 </br>

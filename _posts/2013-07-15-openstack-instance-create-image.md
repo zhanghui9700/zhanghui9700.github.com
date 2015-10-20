@@ -5,7 +5,6 @@ category: openstack
 tags: [openstack]
 ---
 
-{% include JB/setup %}
 
 >openstack 在创建虚拟机的过程中最后需要通过glance-image来创建虚拟机的disk文件，具体代码在/nova/virt/libvrit.py的_create_image中，这个创建过程说实话有点蛋疼，我感觉逻辑不是特别清晰，而且有些方法的命名也起到了很好的误导人的作用，所以只能猜测_create_image这个方法是一个做运维的兄弟写的:^)。这几天频繁的被一个同事吐槽，openstack架构太烂，各种烂，该耦合拆分了，该拆分的耦合了，各种不懂op的developer在做着devops的工作，结果就是不懂op的写代码，不懂写代码的最后负责op，最后让大家用来各种不顺手，所以就有了专门做openstack的服务的公司，而且还可以活的很大并且获得了大家认可，当然前提是在米国，在天朝，算了，还是开始分析一下这个create_image流程吧。
 

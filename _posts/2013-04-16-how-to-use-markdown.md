@@ -5,7 +5,6 @@ title: how to use markdown
 tags: [markdown]
 ---
 
-{% include JB/setup %}
 
 ### 1.段落
 使用一个或多个空行分隔内容段来生成段落 &lt;p&gt; <br />

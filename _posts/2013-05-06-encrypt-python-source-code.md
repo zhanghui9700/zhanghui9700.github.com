@@ -5,7 +5,6 @@ category: python
 tags: [python]
 ---
 
-{% include JB/setup %}
 
 ###需求：加密python代码
 

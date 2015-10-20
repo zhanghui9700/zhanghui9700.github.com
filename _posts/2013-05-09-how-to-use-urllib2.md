@@ -5,7 +5,6 @@ category: python
 tags: [python]
 ---
 
-{% include JB/setup %}
 
 Python 标准库中有很多实用的工具类，但是在具体使用时，标准库文档上对使用细节描述的并不清楚，比如 urllib2 这个 HTTP 客户端库。这里总结了一些 urllib2 库的使用细节。
 1.Proxy 的设置
