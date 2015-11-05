@@ -1,3 +1,13 @@
+---
+layout: post
+category: openstack
+title: getting started with InfluxDB 
+tags: [linux, openstack]
+
+---
+
+
+
 ### Influxdb
 
 >InfluxDB is a time series, metrics, and analytics database. It’s written in Go and has no external dependencies.
